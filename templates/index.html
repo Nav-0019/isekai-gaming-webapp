@@ -6,8 +6,10 @@
         <title>Isekai Gaming</title>
     </head>
     <body>
-        <h1>Wlecome to Isekai Gaming!</h1>
-        <p>Click the button below to get your random hitter.</p>
-        <button onclick="location.href='/hit'">Hit!</button>
+        <form action="/start" method="post"> 
+            <label for="">Enter your character name: </label>
+            <input type="text" name="name" id="name" required>
+            <button type="submit">Start Game</button>
+        </form>
     </body>
 </html>

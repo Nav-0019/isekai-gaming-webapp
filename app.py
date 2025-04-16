@@ -1,13 +1,12 @@
-from flask import Flask, render_template
-app = Flask(__name__)
+from flask import Flask, render_template, request, redirect, url_for, session
+import os
 
-@app.route('/')
+app = Flask(__name__)
+app.secret_key = os.urandom(24)
+
+@app.route('/', method=["GET"])
 def home():
     return render_template('index.html')
-
-@app.route('/hit')
-def hit():
-    return "You got hit by a random Character!"
 
 if __name__ == '__main__':
     app.run(debug=True)

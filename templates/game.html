@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Battle Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{{ animate }}">
+    <h2>{{ character["name"] }} | Level {{ character["level"] }}</h2>
+    <div class="container {% if animate %}{{ animate }}{% endif %}">
+        <p><strong>Role:</strong> {{ character['position'][character['level']] }}</p>
+        <p><strong>Weapon:</strong> {{ character['weapon'][character['level']] }}</p>
+        <p class="monster">A wild {{ character['monster'][character['level']] }} appears!</p>
+        <form method="POST">
+            <p>Guess a number between <strong>0</strong> and <strong>{{ 2 ** character['level'] }}</strong>:</p>
+            <input type="number" name="guess" min="0" max="{{ 2 ** character['level'] }}" required>
+            <input type="submit" value="Attack">
+        </form>
+        <div class="range-bar">
+            <input type="range" min="0" max="{{ 2 ** character['level'] }}" value="0" class="slider" id="rangeInput">
+            <p>Current guess: <span id="rangeValue">0</span></p>
+        </div>
+        {% if message %}
+        <p class="message">{{ message }}</p>
+        {% endif %}
+    </div>
+    <script>
+        const rangeInput = document.getElementById("rangeInput");
+        const rangeValue = document.getElementById("rangeValue");
+        rangeInput.oninput = function() {
+            rangeValue.innerHTML = rangeInput.value;
+        }
+    </script>
+</body>
+</html>

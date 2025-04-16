@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.monster {
+    font-size: 1.5em;
+    color: red;
+    font-weight: bold;
+}
+
+.message {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.slider {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#rangeValue {
+    font-weight: bold;
+}
+
+.victory-flash {
+    animation: flash 1s ease-in-out;
+}
+
+.blackout {
+    background-color: black;
+    color: white;
+    animation: blackout 1s ease-in-out;
+}
+
+@keyframes flash {
+    0% { background-color: transparent; }
+    50% { background-color: yellow; }
+    100% { background-color: transparent; }
+}
+
+@keyframes blackout {
+    0% { background-color: transparent; }
+    100% { background-color: black; }
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #45a049;
+}

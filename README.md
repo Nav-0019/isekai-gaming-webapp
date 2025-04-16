@@ -1,12 +1,9 @@
-Isekai Gaming WebApp: 
+# Isekai Gaming WebApp 🎮
 
-Welcome to the Isekai Gaming WebApp—a Flask-based application that randomly selects a "hitter" each time you play. Inspired by the isekai genre, this project brings a touch of fantasy to your browser.
+A simple isekai adventure game built with Python Flask. Create a character, fight monsters, and become a hero!
 
-🚀 Features
-🎲 Random hitter selection on each play
+## How to Run
 
-🧠 Simple logic implemented in Python
-
-🌐 Web interface using Flask
-
-📁 Organized project structure for scalability
+```bash
+pip install flask
+python app.py

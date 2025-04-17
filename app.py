@@ -15,9 +15,9 @@ def start():
     session["character"] = {
         "name": name,
         "level": 0,
-        "monster": ["Slime", "Goblin", "Orc", "Troll", "Stempede of monster", "Dragon", "Demon God"],
-        "position": ["Traveller", "Villager", "Village hero", "Noble", "King", "SSS rank adventurer", "Demi-God"],
-        "weapon": ["Wooden sword", "Iron sword", "Steel sword", "Mithril sword", "Excalibur", "Soul sword", "Sword of light"]
+        "monster": ["Slime", "Goblin", "Orc", "Troll", "Stampede of Monsters", "Dragon", "Demon God"],
+        "position": ["Traveller", "Villager", "Village Hero", "Noble", "King", "SSS Rank Adventurer", "Demi-God"],
+        "weapon": ["Wooden Sword", "Iron Sword", "Steel Sword", "Mithril Sword", "Excalibur", "Soul Sword", "Sword of Light"]
     }
     return redirect(url_for('game'))
 
@@ -26,10 +26,12 @@ def game():
     character = session.get("character")
     animate = ""
     message = ""
-    
+
     if request.method == "POST":
         guess = request.form["guess"]
         monster_attack = random.randint(0, 2 ** character["level"])
+      
+        print(f"Monster Attack Value: {monster_attack}")  
         
         if int(guess) == monster_attack:
             character["level"] += 1
@@ -40,9 +42,9 @@ def game():
         else:
             message = f"{character['name']} missed the attack! The monster counterattacked!"
             animate = "blackout"
-    
+
         session["character"] = character 
-        
+
     return render_template('game.html', character=character, message=message, animate=animate)
 
 @app.route('/game_over')
